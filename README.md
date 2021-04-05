@@ -1,18 +1,24 @@
 # Anomaly-Detection-with-GESD
 Anomaly detection plays a very important role in a wide variety of use cases. Typically, anomalous data can be connected to some kind of problem or rare event such as e.g. bank fraud, medical problems, structural defects, malfunctioning equipment, etc. This connection makes it very interesting to be able to pick out which data points can be considered anomalies, as identifying these events are typically very interesting from a business perspective.
+
 Also, many statistical techniques are sensitive to the presence of outliers. For example, simple calculations of the mean and standard deviation may be distorted by a single grossly inaccurate data point. Checking for outliers should be a routine part of any data analysis and potential outliers should be examined to see if they are possibly erroneous
-What is Anomaly Detection?
+
+## What is Anomaly Detection?
 Anomaly detection is any process that finds the outliers of a dataset; those items that don’t belong. These anomalies might point to unusual network traffic, uncover a sensor on the fritz, or simply identify data for cleaning, before analysis.
 There are various techniques that can be used to identify anomalies based on different schemes or approaches like graphical (box plots, scatter plots), distance-based schemes(nearest neighbor, clustering algorithms), statistical approaches (GESD, quartile-based techniques), etc. Each scheme has its pros and cons and the efficacy depends on the use case.
-In this article, we are going to focus on GESD (Generalized Extreme Studentized Deviate) and implement a simple example in python to better understand how exactly it works. Before I start, I want to acknowledge that this article is heavily inspired by the lectures of my exploratory data analytics professor Edward McFowland and Bhavesh Bhatt’s machine learning and statistics tutorials on YouTube.
-What is GESD?
+
+## What is GESD?
 GESD is a simple statistical approach used to detect one or more outliers in a univariate data set that follows an approximately normal distribution. Statistical approaches assume that regular data follow some statistical model and the data not following the model are outliers.
 GESD overcomes the primary limitation of the Grubbs test and the Tietjen-Moore test that the suspected number of outliers, k, must be specified exactly. If k is not specified correctly, this can distort the conclusions of these tests. The GESD test only requires that an upper bound for the suspected number of outliers be specified.
 Given the upper bound, r, the generalized ESD test essentially performs r separate tests: a test for one outlier, a test for two outliers, and so on up to r outliers.
+
 The generalized ESD test is defined for the hypothesis:
 H0: There are no outliers in the data set
 Ha: There are up to r outliers in the data set
 Our test statistic is given by the formula below:
+
+![image](https://user-images.githubusercontent.com/30365732/113633415-893dec00-9632-11eb-8344-db39aa4607d4.png)
+
 
 Test statistic for GESD
 Here, x_bar and σ denote sample mean and sample standard deviation, respectively.
