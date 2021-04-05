@@ -23,14 +23,23 @@ Our test statistic is given by the formula below:
 Test statistic for GESD
 Here, x_bar and σ denote sample mean and sample standard deviation, respectively.
 In GESD we remove the observation that maximizes |xi — x_bar| and then recompute the above statistic with n-1 observations. We repeat this process until r observations have been removed. This results in the r statistics R1, R2 ………., Rr. This process will become more clear with the coding example.
+
 Corresponding to the r test statistics, compute the following r critical values:
+
+![image](https://user-images.githubusercontent.com/30365732/113633475-a83c7e00-9632-11eb-8d92-845f1dbeaff2.png)
+
 
 Critical Value calculation
 where tp,ν is the 100p percentage point from the t distribution with ν degrees of freedom and
 
+![image](https://user-images.githubusercontent.com/30365732/113633490-b094b900-9632-11eb-917d-05ec62501edc.png)
+
 Our Significance level will be denoted by α.
-The number of outliers is determined by finding the largest i such that Ri > λi.
+
+### The number of outliers is determined by finding the largest i such that Ri > λi.
 Simulation studies by Rosner indicate that this critical value approximation is very accurate for n ≥ 25 and reasonably accurate for n ≥ 15.
+
 Note that although the generalized ESD is essentially Grubbs test applied sequentially, there are a few important distinctions:
-The generalized ESD test makes appropriate adjustments for the critical values based on the number of outliers being tested for that the sequential application of Grubbs test does not.
-If there is significant masking, applying the Grubbs test sequentially may stop too soon.
+
+- The generalized ESD test makes appropriate adjustments for the critical values based on the number of outliers being tested for that the sequential application of Grubbs test does not.
+- If there is significant masking, applying the Grubbs test sequentially may stop too soon.
